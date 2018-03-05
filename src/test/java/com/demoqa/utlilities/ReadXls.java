@@ -11,7 +11,7 @@ public class ReadXls {
 		String Colvalue=null;
 	try
 	{
-	File src=new File(System.getProperty("user.dir"+"src/test/resources/TestData/TestData.xls"));
+	File src=new File(System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\DemoQATestData.xls");
 	Workbook wb=Workbook.getWorkbook(src);
 	Colvalue=wb.getSheet("Data").getCell(col, row).getContents();
 	

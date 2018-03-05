@@ -12,7 +12,7 @@ public class ReadPropertyFile {
 		
 		try{
 			file=new FileInputStream(
-					new File(System.getProperty("user.dir") + "src/test/resources/TestData/config.properties"));
+					new File(System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\config.properties"));
 			Properties prop=new Properties();
 			try{
 			prop.load(file);
