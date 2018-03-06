@@ -5,6 +5,7 @@ package com.demoqa.pages;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 
 /**
  * @author Nishant
@@ -24,6 +25,10 @@ public class CategoryPage {
 	private By priceFilter=By.xpath(".//*[@id='woocommerce_price_filter-1']/form/div/div[1]/div");
 	private By filterButton=By.xpath(".//*[@id='woocommerce_price_filter-1']/form/div/div[2]/button");
 	private By countOfSearchResults=By.xpath(".//*[@id='noo-site']/div[2]/div[1]/div/p");
+	private By searchedItemsRecords=By.xpath("//div[@class='products noo-row']/div");
+	private By productPrice=By.xpath(".//*[@id='noo-site']/div[2]/div[2]/div[1]/div/div[1]/div/div[2]/span/ins/span");
+	private By productCategories=By.xpath(".//*[@id='woocommerce_price_filter-1']/form/div/div[2]/button");
+	
 	
 	public By getDefaultSorting(){
 		return defaultSorting;
@@ -47,5 +52,17 @@ public class CategoryPage {
 	
 	public By getcountOfSearchResults(){
 		return countOfSearchResults;
+	}
+	
+	public By getsearchedItemsRecords(){
+		return searchedItemsRecords;
+	}
+	
+	public By getproductPrice(){
+		return productPrice;
+	}
+	
+	public By getproductCategories(){
+		return productCategories;
 	}
 }

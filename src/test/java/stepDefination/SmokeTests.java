@@ -1,7 +1,10 @@
 package stepDefination;
 
+import java.util.List;
+
 import org.junit.Assert;
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.firefox.FirefoxDriver;
@@ -31,7 +34,7 @@ public class SmokeTests {
 	
 	@After
 	public void tearDown(){
-		scenarioContext.driver.quit();
+		//scenarioContext.driver.quit();
 	}
 	
 	
@@ -100,6 +103,40 @@ public class SmokeTests {
 	   System.out.println(afterCount);
 	   Assert.assertNotEquals(beforeCount, afterCount);
 	  
+	}
+	
+	@When("^User adds product having median price to basket$")
+	public void user_adds_product_having_median_price_to_basket() throws Throwable {
+		List<WebElement> listOfProducts=scenarioContext.testbase.getElements(scenarioContext.driver, scenarioContext.categoryPage.getsearchedItemsRecords());
+		System.out.println("Count of Searched products..."+listOfProducts.size());
+		//Thread.sleep(4000);
+		//scenarioContext.testbase.scrollToElement(scenarioContext.driver, scenarioContext.categoryPage.getproductPrice());
+		WebElement scrollToElement=scenarioContext.testbase.getElement(scenarioContext.driver, scenarioContext.categoryPage.getproductCategories());
+		
+		JavascriptExecutor je=(JavascriptExecutor)scenarioContext.driver;
+		je.executeScript("arguments[0].scrollIntoView(true);",scrollToElement); 
+
+		WebElement productValue=scenarioContext.testbase.getElement(scenarioContext.driver, scenarioContext.categoryPage.getproductPrice());
+		String pp=productValue.getText();
+		System.out.println(pp);
+		for(WebElement ele:listOfProducts){
+			String value=scenarioContext.testbase.getValue(scenarioContext.driver, scenarioContext.categoryPage.getproductPrice());
+			System.out.println(scenarioContext.categoryPage.getproductPrice());
+			//System.out.println("Price is..."+value);
+		}
+	}
+	
+	@When("^User clicks on check out$")
+	public void user_clicks_on_check_out() throws Throwable {
+		System.out.println("2");
+	    
+	    
+	}
+	
+	@Then("^user should be able to do checkout of added product successfully$")
+	public void user_should_be_able_to_do_checkout_of_added_product_successfully() throws Throwable {
+		System.out.println("3");
+	   
 	}
 
 

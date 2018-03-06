@@ -1,9 +1,11 @@
 package com.demoqa.base;
 
+import java.util.List;
 import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.Dimension;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -90,8 +92,14 @@ public class TestBase {
 	}
 	
 	public WebElement getElement(WebDriver driver, By element){
-		return driver.findElement(element);
+		WebElement pp;
+		return pp=driver.findElement(element);
 		
+	}
+	
+	public List<WebElement> getElements(WebDriver driver, By element){
+		List<WebElement>productList;
+		return productList = driver.findElements(element);
 	}
 	
 	public void selectDropDown(WebDriver driver, WebElement element, String value){
@@ -120,11 +128,21 @@ public class TestBase {
 		}
 		
 		
+			
+		}
+	
+	public void scrollToElement(WebDriver driver, By element){
+		
+		JavascriptExecutor je=(JavascriptExecutor)driver;
+		je.executeScript("arguments[0].scrollIntoView(true);", element);
+	}
+	
+		
 		
 	}
 		
 	
-	}
+	
 	
 	
 
